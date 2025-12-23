@@ -1,0 +1,141 @@
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>GeoPortal Kecamatan Purbalingga</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,sans-serif}
+body{background:#f1f5f9;color:#0f172a}
+
+.navbar{
+  position:fixed;top:0;width:100%;
+  background:#0f172a;color:white;
+  display:flex;justify-content:space-between;
+  padding:16px 60px;z-index:1000
+}
+.menu button{
+  background:none;border:none;color:#e5e7eb;
+  margin-left:20px;font-size:15px;
+  cursor:pointer;font-weight:600
+}
+.menu button.active,.menu button:hover{color:#22c55e}
+
+.page{display:none;padding:100px 80px}
+.page.active{display:block}
+
+.hero{
+  height:80vh;
+  display:flex;
+  align-items:center;
+  background:linear-gradient(135deg,#064e3b,#022c22);
+  color:white
+}
+.hero h1{font-size:42px;margin-bottom:16px}
+.hero p{font-size:18px;max-width:700px}
+
+.cards{
+  margin-top:40px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px
+}
+.card{
+  background:white;
+  padding:26px;
+  border-radius:18px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08)
+}
+.card i{font-size:34px;color:#22c55e}
+
+.map{
+  margin-top:30px;
+  height:360px;
+  border-radius:14px;
+  background:#e5e7eb;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:600;
+  color:#334155
+}
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+  <b>GeoPortal Purbalingga</b>
+  <div class="menu">
+    <button class="active" onclick="openPage('home',this)">Beranda</button>
+    <button onclick="openPage('kecamatan',this)">Peta Kecamatan</button>
+    <button onclick="openPage('desa',this)">Peta Desa</button>
+    <button onclick="openPage('about',this)">Tentang</button>
+  </div>
+</div>
+
+<div id="home" class="page active hero">
+  <div>
+    <h1>GeoPortal Kecamatan Purbalingga</h1>
+    <p>
+      Sistem Informasi Geografis berbasis web untuk menyajikan
+      peta wilayah kecamatan dan desa secara interaktif.
+    </p>
+  </div>
+</div>
+
+<div id="kecamatan" class="page">
+  <h2>Peta Kecamatan Purbalingga</h2>
+  <div class="map">
+    (Iframe Peta Kecamatan dari QGIS di sini)
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <i class="ri-group-line"></i>
+      <h3>Penduduk</h3>
+      <p>± 75.000 jiwa</p>
+    </div>
+    <div class="card">
+      <i class="ri-road-map-line"></i>
+      <h3>Luas Wilayah</h3>
+      <p>± 23 km²</p>
+    </div>
+  </div>
+</div>
+
+<div id="desa" class="page">
+  <h2>Peta Desa Jatisaba</h2>
+  <div class="map">
+    (Iframe Peta Desa dari QGIS di sini)
+  </div>
+</div>
+
+<div id="about" class="page">
+  <h2>Tentang GeoPortal</h2>
+  <p style="max-width:800px;line-height:1.8">
+    GeoPortal Kecamatan Purbalingga dikembangkan sebagai media
+    penyajian data spasial berbasis web untuk mendukung
+    transparansi informasi, pembelajaran, dan perencanaan wilayah.
+  </p>
+
+  <div class="cards">
+    <div class="card">
+      <i class="ri-eye-line"></i>
+      <h3>Visi</h3>
+      <p>Informasi wilayah yang terbuka dan modern</p>
+    </div>
+    <div class="card">
+      <i class="ri-hand-heart-line"></i>
+      <h3>Manfaat</h3>
+      <p>Mendukung pelayanan publik dan edukasi</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function openPage(id,btn){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.menu button').forEach}
